@@ -1,3 +1,4 @@
+#!/usr/bin/env/python
 import simplejson as json
 import urllib2
 
@@ -8,7 +9,9 @@ bugs = json.loads(request)["entries"]
 for bug in bugs:
     colon_position = bug["title"].index(":") + 2
     bug["title"] = bug["title"][colon_position:]
-        
+
+print "Content-type: text/html"
+print         
 print '<h1>Bugjammed</h1><h2>A list of the latest fixed bugs from BugJam 2010</h2><ul>'
 
 for bug in bugs:
